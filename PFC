@@ -1,0 +1,363 @@
+from tkinter import * 
+import tkinter as tk
+import random
+
+def Pierre():
+    choix=1
+    play(choix)
+
+def Feuille():
+    choix=2
+    play(choix)
+
+def Ciseau():
+    choix=3
+    play(choix)
+
+def play(choix):
+    
+    bot = (random.randint(1, 3))
+    if(choix == bot):
+        EQUAL()
+        replay1()
+    else:
+        if(choix == 1 and bot == 2):
+            WIN()
+            replay1()
+        elif(choix == 2 and bot == 1):
+            LOOSE()
+            replay1()
+        elif(choix == 3 and bot == 1):
+            LOOSE()
+            replay1()
+        elif(choix == 1 and bot == 3):
+            WIN()
+            replay1()
+        elif(choix == 3 and bot == 2):
+            WIN()
+            replay1()
+        elif(choix == 2 and bot == 3):
+            LOOSE()
+            replay1()
+        else:
+            print('Une erreur est survenue !')
+            replay1()
+
+def playIA():
+    bot1 = (random.randint(1, 3))
+    bot2 = (random.randint(1, 3))
+    if(bot1 == bot2):
+        EQUAL()
+        replay1()
+    else:
+        if(bot1 == 1 and bot2 == 2):
+            WIN()
+            replay1()
+        elif(bot1 == 2 and bot2 == 1):
+            LOOSE()
+            replay1()
+        elif(bot1 == 3 and bot2 == 1):
+            LOOSE()
+            replay1()
+        elif(bot1 == 1 and bot2 == 3):
+            WIN()
+            replay1()
+        elif(bot1 == 3 and bot2 == 2):
+            WIN()
+            replay1()
+        elif(bot1 == 2 and bot2 == 3):
+            LOOSE()
+            replay1()
+        else:
+            print('Une erreur est survenue !')
+            replay1()
+
+def fermer():
+    global fenetre
+    fenetre.destroy()
+
+def replay1():
+    # be treated as a new window
+    replay1 = Toplevel(fenetre)
+      
+    # set the title 
+    replay1.title(" Replay ? ")
+      
+    # sets the dimensions
+    replay1.geometry("150x150")
+      
+    # in the Window
+    Label(replay1, 
+        text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(replay1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1.destroy)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(replay1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def WIN():
+    WIN = Tk()
+    label = Label(WIN, text="WIN !", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(WIN, text="Exit", fg='white',bg='#F7D027', command=WIN.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    WIN.mainloop()
+
+def LOOSE():
+    LOOSE = Tk()
+    label = Label(LOOSE, text="LOOSE !", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(LOOSE, text="Exit", fg='white',bg='#F7D027', command=LOOSE.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    LOOSE.mainloop()
+
+def EQUAL():
+    EQUAL = Tk()
+    label = Label(EQUAL, text="EQUAL!", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(EQUAL, text="Exit", fg='white',bg='#F7D027', command=EQUAL.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    EQUAL.mainloop()
+
+def GAME1():
+
+    # be treated as a new window
+    GAME1 = Toplevel(fenetre)
+      
+    # set the title 
+    GAME1.title("P1 VS IA !")
+      
+    # sets the dimensions
+    GAME1.geometry("525x150")
+      
+    # in the Window
+    Label(GAME1, 
+        text ="\n" + "What do you play ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(GAME1, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=Pierre)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(GAME1, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=Feuille)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(GAME1, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=Ciseau)
+    btn_2.pack(side=RIGHT, padx=5, pady=5) 
+    btn_5 = Button(GAME1, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=GAME1.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def GAME2():
+
+    # be treated as a new window
+    GAME2 = Toplevel(fenetre)
+      
+    # set the title 
+    GAME2.title("P1 VS P2 !")
+      
+    # sets the dimensions
+    GAME2.geometry("525x150")
+      
+    # in the Window
+    Label(GAME2, 
+        text ="\n" + "What do you play player 1 ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(GAME2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=Choix1)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(GAME2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=Choix2)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(GAME2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=Choix3)
+    btn_2.pack(side=RIGHT, padx=5, pady=5) 
+    btn_5 = Button(GAME2, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=GAME2.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def Choix1():
+    # be treated as a new window
+    Choix1 = Toplevel(fenetre)
+      
+    # set the title 
+    Choix1.title("P1 VS P2 !")
+      
+    # sets the dimensions
+    Choix1.geometry("525x150")
+      
+    # in the Window
+    Label(Choix1, 
+        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(Choix1, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=EQUAL1)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(Choix1, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=LOOSE1)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(Choix1, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=WIN1)
+    btn_2.pack(side=RIGHT, padx=5, pady=5) 
+    btn_5 = Button(Choix1, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix1.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def Choix2():
+    # be treated as a new window
+    Choix2 = Toplevel(fenetre)
+      
+    # set the title 
+    Choix2.title("P1 VS P2 !")
+      
+    # sets the dimensions
+    Choix2.geometry("525x150")
+      
+    # in the Window
+    Label(Choix2, 
+        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(Choix2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=WIN1)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(Choix2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=EQUAL1)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(Choix2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=LOOSE1)
+    btn_2.pack(side=RIGHT, padx=5, pady=5) 
+    btn_5 = Button(Choix2, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix2.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def Choix3():
+    # be treated as a new window
+    Choix3 = Toplevel(fenetre)
+      
+    # set the title 
+    Choix3.title("P1 VS P2 !")
+      
+    # sets the dimensions
+    Choix3.geometry("525x150")
+      
+    # in the Window
+    Label(Choix3, 
+        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(Choix3, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=WIN1)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(Choix3, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=LOOSE1)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(Choix3, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=EQUAL1)
+    btn_2.pack(side=RIGHT, padx=5, pady=5) 
+    btn_5 = Button(Choix3, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix3.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def WIN1():
+    WIN = Tk()
+    label = Label(WIN, text="You WIN P1 !", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(WIN, text="Exit", fg='white',bg='#F7D027', command=WIN.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    WIN.mainloop()
+
+def LOOSE1():
+    LOOSE = Tk()
+    label = Label(LOOSE, text="You LOOSE P1 !", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(LOOSE, text="Exit", fg='white',bg='#F7D027', command=LOOSE.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    LOOSE.mainloop()
+
+def EQUAL1():
+    EQUAL = Tk()
+    label = Label(EQUAL, text="EQUAL!", font=("Courier", 30))
+    label.pack()
+    btn_1 = Button(EQUAL, text="Exit", fg='white',bg='#F7D027', command=EQUAL.destroy)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+    EQUAL.mainloop()
+
+def fermer1():
+    global Choix1
+    Choix1.destroy()
+
+def fermer2():
+    global Choix2
+    Choix2.destroy()
+
+def fermer3():
+    global Choix3
+    Choix3.destroy()
+
+def replay1():
+    # be treated as a new window
+    replay1 = Toplevel(fenetre)
+      
+    # set the title 
+    replay1.title(" Replay ? ")
+      
+    # sets the dimensions
+    replay1.geometry("150x150")
+      
+    # in the Window
+    Label(replay1, 
+        text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_0 = Button(replay1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1.destroy)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(replay1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+def GAME3():
+
+    # be treated as a new window
+    GAME3 = Toplevel(fenetre)
+      
+    # set the title 
+    GAME3.title(" IA VS IA !")
+      
+    # sets the dimensions
+    GAME3.geometry("300x150")
+      
+    # in the Window
+    Label(GAME3, 
+        text ="\n" + "It's a IA VS IA !" + "\n",fg='#FFCBA2',font='bold').pack()
+    btn_5 = Button(GAME3, text="JOUER", fg ='white',bg='#6BA547', height = 15, width = 15,command=playIA)
+    btn_5.pack(side=RIGHT, padx=5, pady=5)
+    btn_5 = Button(GAME3, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=GAME3.destroy)
+    btn_5.pack(side=LEFT, padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+# Information page
+def new_window():
+
+    # be treated as a new window
+    newWindow = Toplevel(fenetre)
+      
+    # set the title 
+    newWindow.title("Informations !")
+      
+    # sets the dimensions
+    newWindow.geometry("550x350")
+      
+    # in the Window
+    Label(newWindow, 
+        text ="\n" + "Welcome to the information page" + "\n",fg='#1E90FF',font='bold').pack()
+    Label(newWindow, 
+        text ="[P1 VS P2] :" + "\n",fg='dark blue').pack()
+    Label(newWindow, 
+        text ="[P1 VS IA] ",fg='dark blue').pack()
+    Label(newWindow, 
+        text ="[IA VS IA] :",fg='dark blue').pack()
+    Label(newWindow, 
+        text ="\n" + "Thanks !" + "\n",fg='#A965CA',font='bold').pack()
+    btn_5 = Button(newWindow, text="Exit", fg ='white',bg='black', command=newWindow.destroy)
+    btn_5.pack(padx=5, pady=5)
+    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+fenetre = Tk()
+# set the title of the main window
+fenetre.title("PYCode")
+# set the dimension of the main window
+fenetre.geometry("350x125")
+Label(fenetre, text ="\n" + "Welcome !" + "\n" "Are you ready to play ?" + "\n",fg='Black',font='bold').pack()
+
+btn_0 = Button(fenetre, text="IA VS IA", fg='white',bg='#FDC453', height = 5, width = 8, command=GAME3)
+btn_0.pack(side=RIGHT, padx=5, pady=5)  
+btn_1 = Button(fenetre, text=" P1 VS P2", fg='white',bg='#9ADBC5', height = 5, width = 8, command=GAME2)
+btn_1.pack(side=RIGHT, padx=5, pady=5)  
+btn_2 = Button(fenetre, text=" P1 VS IA", fg='white',bg='#A0DDE0', height = 5, width = 8, command=GAME1)
+btn_2.pack(side=RIGHT, padx=5, pady=5)  
+btn_4 = Button(fenetre, text="Info", fg='white',bg='#3D4048', command=new_window)
+btn_4.pack(side=LEFT, padx=5, pady=5)  
+#fenetre.iconbitmap('Back Up\\icon\\icon.ico')
+fenetre.mainloop()
