@@ -2,127 +2,105 @@ from tkinter import *
 import tkinter as tk
 import random
 
-def Pierre():
-    choix=1
-    play(choix)
-
-def Feuille():
-    choix=2
-    play(choix)
-
-def Ciseau():
-    choix=3
-    play(choix)
-
-def play(choix):
-    
-    bot = (random.randint(1, 3))
-    if(choix == bot):
-        EQUAL()
-        replay1()
-    else:
-        if(choix == 1 and bot == 2):
-            WIN()
-            replay1()
-        elif(choix == 2 and bot == 1):
-            LOOSE()
-            replay1()
-        elif(choix == 3 and bot == 1):
-            LOOSE()
-            replay1()
-        elif(choix == 1 and bot == 3):
-            WIN()
-            replay1()
-        elif(choix == 3 and bot == 2):
-            WIN()
-            replay1()
-        elif(choix == 2 and bot == 3):
-            LOOSE()
-            replay1()
-        else:
-            print('Une erreur est survenue !')
-            replay1()
-
-def playIA():
-    bot1 = (random.randint(1, 3))
-    bot2 = (random.randint(1, 3))
-    if(bot1 == bot2):
-        EQUAL()
-        replay1()
-    else:
-        if(bot1 == 1 and bot2 == 2):
-            WIN()
-            replay1()
-        elif(bot1 == 2 and bot2 == 1):
-            LOOSE()
-            replay1()
-        elif(bot1 == 3 and bot2 == 1):
-            LOOSE()
-            replay1()
-        elif(bot1 == 1 and bot2 == 3):
-            WIN()
-            replay1()
-        elif(bot1 == 3 and bot2 == 2):
-            WIN()
-            replay1()
-        elif(bot1 == 2 and bot2 == 3):
-            LOOSE()
-            replay1()
-        else:
-            print('Une erreur est survenue !')
-            replay1()
-
 def fermer():
     global fenetre
     fenetre.destroy()
 
-def replay1():
-    # be treated as a new window
-    replay1 = Toplevel(fenetre)
-      
-    # set the title 
-    replay1.title(" Replay ? ")
-      
-    # sets the dimensions
-    replay1.geometry("150x150")
-      
-    # in the Window
-    Label(replay1, 
-        text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(replay1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1.destroy)
-    btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(replay1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-
-def WIN():
-    WIN = Tk()
-    label = Label(WIN, text="WIN !", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(WIN, text="Exit", fg='white',bg='#F7D027', command=WIN.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    WIN.mainloop()
-
-def LOOSE():
-    LOOSE = Tk()
-    label = Label(LOOSE, text="LOOSE !", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(LOOSE, text="Exit", fg='white',bg='#F7D027', command=LOOSE.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    LOOSE.mainloop()
-
-def EQUAL():
-    EQUAL = Tk()
-    label = Label(EQUAL, text="EQUAL!", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(EQUAL, text="Exit", fg='white',bg='#F7D027', command=EQUAL.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    EQUAL.mainloop()
-
 def GAME1():
+
+    def Pierre():
+        choix=1
+        play(choix)
+
+    def Feuille():
+        choix=2
+        play(choix)
+
+    def Ciseau():
+        choix=3
+        play(choix)
+
+    def play(choix):
+        
+        bot = (random.randint(1, 3))
+        if(choix == bot):
+            replay2()
+        else:
+            if(choix == 1 and bot == 2):
+                replay1()
+            elif(choix == 2 and bot == 1):
+                replay3()
+            elif(choix == 3 and bot == 1):
+                replay3()
+            elif(choix == 1 and bot == 3):
+                replay1()
+            elif(choix == 3 and bot == 2):
+                replay1()
+            elif(choix == 2 and bot == 3):
+                replay3()
+
+    def replay1():
+        # be treated as a new window
+        replay1 = Toplevel(fenetre)
+        
+        # set the title 
+        replay1.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay1.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay1, text=" WIN !", font=("Courier", 25))
+        label.pack()
+        Label(replay1, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay2():
+        # be treated as a new window
+        replay2 = Toplevel(fenetre)
+        
+        # set the title 
+        replay2.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay2.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay2, text="EQUAL !", font=("Courier", 25))
+        label.pack()
+        Label(replay2, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay2, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay2.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay2, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay3():
+        # be treated as a new window
+        replay3 = Toplevel(fenetre)
+        
+        # set the title 
+        replay3.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay3.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay3, text="LOOSE !", font=("Courier", 25))
+        label.pack()
+        Label(replay3, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay3, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay3.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay3, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
 
     # be treated as a new window
     GAME1 = Toplevel(fenetre)
@@ -148,6 +126,131 @@ def GAME1():
 
 def GAME2():
 
+    def close(ChoixGAME2,wnd):
+        ChoixGAME2.destroy()
+        wnd.destroy()
+        
+    def ChoixP11():
+        choix=1
+        ChoixGAME2(choix)
+    
+    def ChoixP12():
+        choix=2
+        ChoixGAME2(choix)
+
+    def ChoixP13():
+        choix=3
+        ChoixGAME2(choix)
+
+    def ChoixGAME2(choix):
+
+        ChoixP1=choix
+        Pierre=1
+        Feuille=2
+        Ciseau=3
+
+        # be treated as a new window
+        ChoixGAME2 = Toplevel(fenetre)
+        
+        # set the title 
+        ChoixGAME2.title("P1 VS P2 !")
+        
+        # sets the dimensions
+        ChoixGAME2.geometry("525x150")
+        
+        # in the Window
+        Label(ChoixGAME2, 
+            text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(ChoixGAME2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=lambda: [play(choix,Pierre,ChoixGAME2)])
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(ChoixGAME2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=lambda: [play(choix,Feuille,ChoixGAME2)])
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        btn_2 = Button(ChoixGAME2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=lambda: [play(choix,Ciseau,ChoixGAME2)])
+        btn_2.pack(side=RIGHT, padx=5, pady=5) 
+        btn_5 = Button(ChoixGAME2, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=ChoixGAME2.destroy)
+        btn_5.pack(side=LEFT, padx=5, pady=5)
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def play(choixp1,choixp2,ChoixGAME2):
+        
+        if(choixp1 == choixp2):
+            replay21v1(ChoixGAME2)
+        else:
+            if(choixp1 == 1 and choixp2 == 2):
+                replay31v1(ChoixGAME2)
+            elif(choixp1 == 2 and choixp2 == 1):
+                replay11v1(ChoixGAME2)
+            elif(choixp1 == 3 and choixp2 == 1):
+                replay31v1(ChoixGAME2)
+            elif(choixp1 == 1 and choixp2 == 3):
+                replay11v1(ChoixGAME2)
+            elif(choixp1 == 3 and choixp2 == 2):
+                replay11v1(ChoixGAME2)
+            elif(choixp1 == 2 and choixp2 == 3):
+                replay31v1(ChoixGAME2)
+
+    def replay11v1(ChoixGAME2):
+        # be treated as a new window
+        replay11v1 = Toplevel(fenetre)
+        # set the title 
+        replay11v1.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay11v1.geometry("165x150")
+        
+        # in the Window
+        label = Label(replay11v1, text="P1 WIN !", font=("Courier", 25))
+        label.pack()
+        Label(replay11v1, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay11v1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=lambda: [close(ChoixGAME2,replay11v1)])
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay11v1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay21v1(ChoixGAME2):
+        # be treated as a new window
+        replay21v1 = Toplevel(fenetre)
+        
+        # set the title 
+        replay21v1.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay21v1.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay21v1, text="EQUAL !", font=("Courier", 25))
+        label.pack()
+        Label(replay21v1, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay21v1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=lambda: [close(ChoixGAME2,replay21v1)])
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay21v1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay31v1(ChoixGAME2):
+        # be treated as a new window
+        replay31v1 = Toplevel(fenetre)
+        
+        # set the title 
+        replay31v1.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay31v1.geometry("175x150")
+        
+        # in the Window
+        label = Label(replay31v1, text="P1 LOOSE!", font=("Courier", 25))
+        label.pack()
+        Label(replay31v1, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay31v1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=lambda: [close(ChoixGAME2,replay31v1)])
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay31v1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
     # be treated as a new window
     GAME2 = Toplevel(fenetre)
       
@@ -160,144 +263,99 @@ def GAME2():
     # in the Window
     Label(GAME2, 
         text ="\n" + "What do you play player 1 ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(GAME2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=Choix1)
+    btn_0 = Button(GAME2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=ChoixP11)
     btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(GAME2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=Choix2)
+    btn_1 = Button(GAME2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=ChoixP12)
     btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    btn_2 = Button(GAME2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=Choix3)
+    btn_2 = Button(GAME2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=ChoixP13)
     btn_2.pack(side=RIGHT, padx=5, pady=5) 
     btn_5 = Button(GAME2, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=GAME2.destroy)
     btn_5.pack(side=LEFT, padx=5, pady=5)
     #newWindow.iconbitmap('Back Up\\icon\\info.ico')
 
-def Choix1():
-    # be treated as a new window
-    Choix1 = Toplevel(fenetre)
-      
-    # set the title 
-    Choix1.title("P1 VS P2 !")
-      
-    # sets the dimensions
-    Choix1.geometry("525x150")
-      
-    # in the Window
-    Label(Choix1, 
-        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(Choix1, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=EQUAL1)
-    btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(Choix1, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=LOOSE1)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    btn_2 = Button(Choix1, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=WIN1)
-    btn_2.pack(side=RIGHT, padx=5, pady=5) 
-    btn_5 = Button(Choix1, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix1.destroy)
-    btn_5.pack(side=LEFT, padx=5, pady=5)
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-
-def Choix2():
-    # be treated as a new window
-    Choix2 = Toplevel(fenetre)
-      
-    # set the title 
-    Choix2.title("P1 VS P2 !")
-      
-    # sets the dimensions
-    Choix2.geometry("525x150")
-      
-    # in the Window
-    Label(Choix2, 
-        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(Choix2, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=WIN1)
-    btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(Choix2, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=EQUAL1)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    btn_2 = Button(Choix2, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=LOOSE1)
-    btn_2.pack(side=RIGHT, padx=5, pady=5) 
-    btn_5 = Button(Choix2, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix2.destroy)
-    btn_5.pack(side=LEFT, padx=5, pady=5)
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-
-def Choix3():
-    # be treated as a new window
-    Choix3 = Toplevel(fenetre)
-      
-    # set the title 
-    Choix3.title("P1 VS P2 !")
-      
-    # sets the dimensions
-    Choix3.geometry("525x150")
-      
-    # in the Window
-    Label(Choix3, 
-        text ="\n" + "What do you play player 2 ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(Choix3, text="Pierre", fg='white',bg='#8FCACA', height = 20, width = 20, command=WIN1)
-    btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(Choix3, text="Feuille", fg='white',bg='#97C1A9', height = 20, width = 20, command=LOOSE1)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    btn_2 = Button(Choix3, text="Ciseau", fg='white',bg='#FF968A', height = 20, width = 20, command=EQUAL1)
-    btn_2.pack(side=RIGHT, padx=5, pady=5) 
-    btn_5 = Button(Choix3, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=Choix3.destroy)
-    btn_5.pack(side=LEFT, padx=5, pady=5)
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-
-def WIN1():
-    WIN = Tk()
-    label = Label(WIN, text="You WIN P1 !", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(WIN, text="Exit", fg='white',bg='#F7D027', command=WIN.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    WIN.mainloop()
-
-def LOOSE1():
-    LOOSE = Tk()
-    label = Label(LOOSE, text="You LOOSE P1 !", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(LOOSE, text="Exit", fg='white',bg='#F7D027', command=LOOSE.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    LOOSE.mainloop()
-
-def EQUAL1():
-    EQUAL = Tk()
-    label = Label(EQUAL, text="EQUAL!", font=("Courier", 30))
-    label.pack()
-    btn_1 = Button(EQUAL, text="Exit", fg='white',bg='#F7D027', command=EQUAL.destroy)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-    EQUAL.mainloop()
-
-def fermer1():
-    global Choix1
-    Choix1.destroy()
-
-def fermer2():
-    global Choix2
-    Choix2.destroy()
-
-def fermer3():
-    global Choix3
-    Choix3.destroy()
-
-def replay1():
-    # be treated as a new window
-    replay1 = Toplevel(fenetre)
-      
-    # set the title 
-    replay1.title(" Replay ? ")
-      
-    # sets the dimensions
-    replay1.geometry("150x150")
-      
-    # in the Window
-    Label(replay1, 
-        text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_0 = Button(replay1, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1.destroy)
-    btn_0.pack(side=RIGHT, padx=5, pady=5)  
-    btn_1 = Button(replay1, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
-    btn_1.pack(side=RIGHT, padx=5, pady=5)  
-    #newWindow.iconbitmap('Back Up\\icon\\info.ico')
-
 def GAME3():
+
+    def playIA():
+        bot1 = (random.randint(1, 3))
+        bot2 = (random.randint(1, 3))
+        if(bot1 == bot2):
+            replay2()
+        else:
+            if(bot1 == 1 and bot2 == 2):
+                replay1IA()
+            elif(bot1 == 2 and bot2 == 1):
+                replay3IA()
+            elif(bot1 == 3 and bot2 == 1):
+                replay3IA()
+            elif(bot1 == 1 and bot2 == 3):
+                replay1IA()
+            elif(bot1 == 3 and bot2 == 2):
+                replay1IA()
+            elif(bot1 == 2 and bot2 == 3):
+                replay3IA()
+
+    def replay1IA():
+        # be treated as a new window
+        replay1IA = Toplevel(fenetre)
+        
+        # set the title 
+        replay1IA.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay1IA.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay1IA, text="IA1 WIN!", font=("Courier", 25))
+        label.pack()
+        Label(replay1IA, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay1IA, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay1IA.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay1IA, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay2IA():
+        # be treated as a new window
+        replay2IA = Toplevel(fenetre)
+        
+        # set the title 
+        replay2IA.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay2IA.geometry("150x150")
+        
+        # in the Window
+        label = Label(replay2IA, text="EQUAL !", font=("Courier", 25))
+        label.pack()
+        Label(replay2IA, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay2IA, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay2IA.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay2IA, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
+
+    def replay3IA():
+        # be treated as a new window
+        replay3IA = Toplevel(fenetre)
+        
+        # set the title 
+        replay3IA.title(" Replay ? ")
+        
+        # sets the dimensions
+        replay3IA.geometry("165x150")
+        
+        # in the Window
+        label = Label(replay3IA, text="IA1 LOOSE!", font=("Courier", 25))
+        label.pack()
+        Label(replay3IA, 
+            text ="\n" + "You want replay ?" + "\n",fg='#FFCBA2',font='bold').pack()
+        btn_0 = Button(replay3IA, text="Yes", fg='white',bg='#619ED6', height = 5, width = 8, command=replay3IA.destroy)
+        btn_0.pack(side=RIGHT, padx=5, pady=5)  
+        btn_1 = Button(replay3IA, text="No", fg='white',bg='#E64345', height = 5, width = 8, command=fermer)
+        btn_1.pack(side=RIGHT, padx=5, pady=5)  
+        #newWindow.iconbitmap('Back Up\\icon\\info.ico')
 
     # be treated as a new window
     GAME3 = Toplevel(fenetre)
@@ -311,7 +369,7 @@ def GAME3():
     # in the Window
     Label(GAME3, 
         text ="\n" + "It's a IA VS IA !" + "\n",fg='#FFCBA2',font='bold').pack()
-    btn_5 = Button(GAME3, text="JOUER", fg ='white',bg='#6BA547', height = 15, width = 15,command=playIA)
+    btn_5 = Button(GAME3, text="PLAY", fg ='white',bg='#6BA547', height = 15, width = 15,command=playIA)
     btn_5.pack(side=RIGHT, padx=5, pady=5)
     btn_5 = Button(GAME3, text="Exit", fg ='white',bg='black', height = 5, width = 5,command=GAME3.destroy)
     btn_5.pack(side=LEFT, padx=5, pady=5)
