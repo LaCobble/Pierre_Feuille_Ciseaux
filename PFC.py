@@ -402,20 +402,24 @@ def new_window():
     btn_5.pack(padx=5, pady=5)
     #newWindow.iconbitmap('Back Up\\icon\\info.ico')
 
-fenetre = Tk()
-# set the title of the main window
-fenetre.title("PYCode")
-# set the dimension of the main window
-fenetre.geometry("350x125")
-Label(fenetre, text ="\n" + "Welcome !" + "\n" "Are you ready to play ?" + "\n",fg='Black',font='bold').pack()
+def main():
+    fenetre = Tk()
+    # set the title of the main window
+    fenetre.title("PYCode")
+    # set the dimension of the main window
+    fenetre.geometry("350x125")
+    Label(fenetre, text ="\n" + "Welcome !" + "\n" "Are you ready to play ?" + "\n",fg='Black',font='bold').pack()
 
-btn_0 = Button(fenetre, text="IA VS IA", fg='white',bg='#FDC453', height = 5, width = 8, command=GAME3)
-btn_0.pack(side=RIGHT, padx=5, pady=5)  
-btn_1 = Button(fenetre, text=" P1 VS P2", fg='white',bg='#9ADBC5', height = 5, width = 8, command=GAME2)
-btn_1.pack(side=RIGHT, padx=5, pady=5)  
-btn_2 = Button(fenetre, text=" P1 VS IA", fg='white',bg='#A0DDE0', height = 5, width = 8, command=GAME1)
-btn_2.pack(side=RIGHT, padx=5, pady=5)  
-btn_4 = Button(fenetre, text="Info", fg='white',bg='#3D4048', command=new_window)
-btn_4.pack(side=LEFT, padx=5, pady=5)  
-#fenetre.iconbitmap('Back Up\\icon\\icon.ico')
-fenetre.mainloop()
+    btn_0 = Button(fenetre, text="IA VS IA", fg='white',bg='#FDC453', height = 5, width = 8, command=GAME3)
+    btn_0.pack(side=RIGHT, padx=5, pady=5)  
+    btn_1 = Button(fenetre, text=" P1 VS P2", fg='white',bg='#9ADBC5', height = 5, width = 8, command=GAME2)
+    btn_1.pack(side=RIGHT, padx=5, pady=5)  
+    btn_2 = Button(fenetre, text=" P1 VS IA", fg='white',bg='#A0DDE0', height = 5, width = 8, command=GAME1)
+    btn_2.pack(side=RIGHT, padx=5, pady=5)  
+    btn_4 = Button(fenetre, text="Info", fg='white',bg='#3D4048', command=new_window)
+    btn_4.pack(side=LEFT, padx=5, pady=5)  
+    #fenetre.iconbitmap('Back Up\\icon\\icon.ico')
+    fenetre.mainloop()
+
+if __name__ == "__main__":
+    main()
