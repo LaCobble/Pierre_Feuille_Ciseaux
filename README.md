@@ -1,12 +1,10 @@
 # Pierre_Feuille_Ciseaux
 
-This is a Python project that I attempted to create with a single constraint: complete it in less than 2 hours.
-
 <p align="center">
 <img src="https://github.com/LaCobble/Pierre_Feuille_Ciseaux/assets/71151090/1d87304a-58ea-4917-9bfa-92d0dfb48387" width=40% height=40%>
 </p>
 
-
+This is a Python project that I attempted to create with a single constraint: complete it in less than 2 hours.
 The project includes a graphical interface using Tkinter.
 
 There are three modes:
