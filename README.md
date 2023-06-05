@@ -1,21 +1,46 @@
 # Pierre_Feuille_Ciseaux
 
-C'est un projet en python que j'ai essayé de réaliser avec une seule contrainte, le faire en moins de 2heures.
+This is a Python project that I attempted to create with a single constraint: complete it in less than 2 hours.
 
-![image](https://user-images.githubusercontent.com/71151090/158846761-6408a0cc-3bd2-42a1-a42f-99be9d4dc885.png)
+<p align="center">
+<img src="https://github.com/LaCobble/Pierre_Feuille_Ciseaux/assets/71151090/1d87304a-58ea-4917-9bfa-92d0dfb48387" width=40% height=40%>
+</p>
 
-Nous pouvons retrouver une interface grapghique ( Tkinter )
 
-Il y a trois modes :
+The project includes a graphical interface using Tkinter.
 
-P1 vs IA 
+There are three modes:
 
-Nous affontons une IA, plus précisement un random. 
+1. P1 vs. AI: You play against an AI, specifically a random player.
+2. P1 vs. P2: Allows you to play against another person.
+3. AI vs. AI: Two AI players (random) play against each other.
 
-P1 vs P2
+# Game Screenshots
+(Add screenshots of your game here)
 
-Permet de jouer avec un quelqu'un d'autres.
+## Getting Started
 
-IA vs IA 
+To run this project, follow these steps:
 
-Une IA affronte une IA, plus précisement un random avec un autre random. 
+1. Clone the repository: `git clone https://github.com/your-username/Pierre_Feuille_Ciseaux.git`
+2. Navigate to the project directory: `cd Pierre_Feuille_Ciseaux`
+3. Run the main Python file: `python main.py`
+
+## Dependencies
+
+This project requires the following dependencies:
+
+- Python (version X.X.X)
+- Tkinter (included in standard Python library)
+
+## Usage
+
+Once the game is running, you can select one of the three game modes. In each mode, follow the on-screen instructions to make your move (rock, paper, or scissors). The game will display the result and ask if you want to replay.
+
+## Contributing
+
+Contributions to this project are welcome. If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
