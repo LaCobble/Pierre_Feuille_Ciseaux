@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- The game modes and result windows open again: `main()` now declares the main window `global`. Since the code was moved into `main()` in August 2021, every sub-window failed with `NameError: name 'fenetre' is not defined`.
 - README: the entry point is `PFC.py` and the clone URL points to this repository.
 
 ## [1.0.0] - 2022-03-17
