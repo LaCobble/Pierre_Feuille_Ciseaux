@@ -8,7 +8,7 @@
 Rock paper scissors with a Tkinter interface and three modes (player vs AI, player vs player, AI vs AI), built under a two-hour time limit.
 
 <p align="center">
-  <img src="https://github.com/LaCobble/Pierre_Feuille_Ciseaux/assets/71151090/1d87304a-58ea-4917-9bfa-92d0dfb48387" width="40%" alt="Rock Paper Scissors main menu">
+  <img src="docs/images/1-menu.webp" alt="Rock Paper Scissors main menu">
 </p>
 
 ## What it does
@@ -19,7 +19,30 @@ The main menu offers three modes:
 2. **P1 vs P2**: two players take turns on the same computer.
 3. **IA vs IA**: two random players face each other.
 
-After each round the game shows the result (win, draw or loss) and asks whether you want to play again. The move buttons use the French names: *Pierre* (rock), *Feuille* (paper), *Ciseau* (scissors).
+After each round the game shows the result (win, draw or loss) and asks whether you want to play again. Known issue: in player vs AI mode some win/loss outcomes are inverted (for example rock against paper is shown as a win). The move buttons use the French names: *Pierre* (rock), *Feuille* (paper), *Ciseau* (scissors).
+
+## Screenshots
+
+Captured on Linux (Xvfb) by running the real program and pressing its buttons; window titles are not shown. The fixed window sizes come from the original code.
+
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="docs/images/1-menu.webp" alt="Main menu with the three modes"></td>
+    <td width="50%" align="center"><img src="docs/images/2-p1-vs-ia.webp" alt="Player vs AI: choose rock, paper or scissors"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Main menu: the three modes</sub></td>
+    <td align="center"><sub>Player vs AI: pick <i>Pierre</i>, <i>Feuille</i> or <i>Ciseau</i></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/images/3-result.webp" alt="Round result with replay prompt"></td>
+    <td align="center"><img src="docs/images/4-ia-vs-ia.webp" alt="AI vs AI mode"></td>
+  </tr>
+  <tr>
+    <td align="center"><sub>Round result and replay prompt</sub></td>
+    <td align="center"><sub>AI vs AI: press <b>PLAY</b> to watch a round</sub></td>
+  </tr>
+</table>
 
 ## Getting started
 
