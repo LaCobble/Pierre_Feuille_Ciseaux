@@ -409,6 +409,7 @@ def new_window():
     #newWindow.iconbitmap('Back Up\\icon\\info.ico')
 
 def main():
+    global fenetre
     fenetre = Tk()
     # set the title of the main window
     fenetre.title("PYCode")
